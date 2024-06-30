@@ -5,7 +5,6 @@ import warnings
 
 from flask import Flask
 
-from app.extensions import db, ma, mail
 from app.log import LOG_CONFIG
 from config import config
 
@@ -28,12 +27,6 @@ def init_config(app, config_name):
     config[config_name].init_app(app)
 
 
-def init_extensions(app):
-    ma.init_app(app)
-    db.init_app(app)
-    mail.init_app(app)
-
-
 def init_routes(app):
     from app.routes import routes
 
@@ -49,7 +42,6 @@ def create_app(config_name):
     app = Flask(__name__)
 
     init_config(app, config_name)
-    init_extensions(app)
     init_routes(app)
 
     silence_warnings(config_name)
