@@ -31,6 +31,5 @@ LOG_CONFIG = {
             "handlers": ["console"],
             "level": os.environ.get("LOG_LEVEL", "DEBUG"),
         },
-
     },
 }
