@@ -1,4 +1,4 @@
-FROM amazon/aws-lambda-python:3.9
+FROM amazon/aws-lambda-python:3.12
 
 ARG FUNCTION_DIR="/var/task/"
 
@@ -17,4 +17,3 @@ RUN ZAPPA_HANDLER_PATH=$( \
     && cp $ZAPPA_HANDLER_PATH $FUNCTION_DIR
 
 CMD ["handler.lambda_handler"]
-
